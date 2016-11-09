@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.quiz-title {
+  padding: 20px;
+  font-size: 2.5em;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.question-container {
+  background-color: rgb(215, 236, 247);
+  margin: 20px;
+}
+
+.question-title {
+  background-color: rgb(47, 96, 121);
+  color: white;
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 1.4em;
+  padding: 20px;
+}
+
+.question-form {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto Slab', serif;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+
+.answer {
+  padding: 20px;
+}
