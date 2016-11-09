@@ -12,8 +12,8 @@ class Answers extends Component {
         />
         {answer.title}
       </label>
-          )
-        }
-          }
+    )
+  }
+}
 
 export default Answers;
