@@ -15,7 +15,7 @@ class Questions extends Component {
   }
 
   render() {
-    const { question } = this.props;
+    const { question, getScore } = this.props;
     return(
       <section key={question.id} className="question-container">
         <h2 className="question-title">{question.title}</h2>
@@ -28,6 +28,7 @@ class Questions extends Component {
                 index={index}
                 answer={answer}
                 key={Date.now() + index}
+                getScore={getScore}
               />
             )
           })}

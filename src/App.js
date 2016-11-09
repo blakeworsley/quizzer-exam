@@ -9,6 +9,7 @@ class App extends Component {
       quizzes: [],
       newQuestion: '',
       answers: [],
+      points: [],
     };
   }
 
@@ -44,8 +45,11 @@ class App extends Component {
 
         <input value={this.state.newQuestion}
           onChange={(e) => this.setState({newQuestion: e.target.value})}
+          getScore={}
         />
         <button onClick={() => this.addQuestion()}> Click</button>
+
+{ selectedAnswers: {}}
 
 
         {this.state.quizzes.questions ?
