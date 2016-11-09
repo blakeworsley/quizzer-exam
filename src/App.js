@@ -6,14 +6,33 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      quizzes: []
+      quizzes: [],
+      newQuestion: '',
+      answers: [],
     };
+  }
+
+  addQuestion() {
+    axios.post('/quizzes/1/questions', {
+      'title': this.state.newQuestion,
+      'answers': this.state.answers
+    })
+    .then(function (response) {
+       console.log(response);
+     })
+     .then(() => {
+       this.setState({ newQuestion: '', answers: []});
+     })
+     .catch(function (error) {
+       console.log(error);
+     });
   }
 
   componentDidMount(){
     axios.get('/quizzes')
     .then( (result) => {
       this.setState({ quizzes: result.data.quizzes[0] });
+      console.log(result.data.quizzes[0].id);
     })
     .catch(error => console.log(error));
   }
@@ -22,6 +41,13 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="quiz-title">{this.state.quizzes.title}</h1>
+
+        <input value={this.state.newQuestion}
+          onChange={(e) => this.setState({newQuestion: e.target.value})}
+        />
+        <button onClick={() => this.addQuestion()}> Click</button>
+
+
         {this.state.quizzes.questions ?
           this.state.quizzes.questions.map((question) => {
             return( <Question question={question} key={question.id} /> )
